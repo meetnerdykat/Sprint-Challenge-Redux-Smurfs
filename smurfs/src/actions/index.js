@@ -2,6 +2,7 @@
   Action Types Go Here!
   Be sure to export each action type so you can pull it into your reducer
 */
+export const REDUX_FETCH_SMURF = 'REDUX_FETCH_SMURF';
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -13,3 +14,10 @@
    U - updateSmurf
    D - deleteSmurf
 */
+
+export function redux_fetch_smurf() {
+  console.log('action');
+  return {
+    type: REDUX_FETCH_SMURF
+  };
+}
