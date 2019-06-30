@@ -14,14 +14,25 @@ const SmurfList = props => {
       {/* {props.isFetching && <p>Fetching your Smurf</p>} */}
 
       {props.smurfs.map(smurf => (
-        <div key={smurf.id} className="card text-light m-5 bg-secondary">
-          {smurf.name}
-          <br />
-          {smurf.age}
-          <br />
-          {smurf.height}
-          <br />
-          {smurf.occupation}
+        <div className="col-md-6 offset-md-3">
+          <div
+            key={smurf.id}
+            className="card border-0 text-primary m-5 bg-white"
+          >
+            <div className="card-header bg-danger text-white font-weight-bold">
+              Smurf Bio
+            </div>
+            <div className="card-body">
+              <span style={{ fontWeight: 'bold' }}>name:</span> {smurf.name}
+              <br />
+              <span style={{ fontWeight: 'bold' }}>age:</span> {smurf.age}
+              <br />
+              <span style={{ fontWeight: 'bold' }}>height:</span> {smurf.height}
+              <br />
+              <span style={{ fontWeight: 'bold' }}>occupation:</span>{' '}
+              {smurf.occupation}
+            </div>
+          </div>
         </div>
       ))}
 

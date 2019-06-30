@@ -37,9 +37,100 @@ class AddSmurfForm extends Component {
 
   render() {
     return (
-      <div className="bg-light text-dark">
-        <h2 className="bg-danger py-4 mb-4 text-light">Add A Smurf</h2>
-        <form className="pb-4" onSubmit={this.onSubmit}>
+      <div>
+        <h3 className="bg-danger py-4 mb-4 text-light">Add A Smurf</h3>
+
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group row mb-3 mx-2">
+            <div className="col-sm-12 col-md-6 offset-md-3">
+              <div className="input-group input-group-lg mb-3">
+                <div className="input-group-prepend">
+                  <span
+                    className="input-group-text bg-danger border-0 text-white"
+                    id="inputGroup-sizing-lg"
+                  >
+                    Name
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  name="name"
+                  onChange={this.onChange}
+                  value={this.state.name}
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-lg"
+                />
+              </div>
+
+              <div className="input-group input-group-lg mb-3">
+                <div className="input-group-prepend">
+                  <span
+                    className="input-group-text bg-danger border-0 text-white"
+                    id="inputGroup-sizing-lg"
+                  >
+                    Age
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  name="age"
+                  onChange={this.onChange}
+                  value={this.state.age}
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-lg"
+                />
+              </div>
+
+              <div className="input-group input-group-lg mb-3">
+                <div className="input-group-prepend">
+                  <span
+                    className="input-group-text bg-danger border-0 text-white"
+                    id="inputGroup-sizing-lg"
+                  >
+                    Height
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  name="height"
+                  onChange={this.onChange}
+                  value={this.state.height}
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-lg"
+                />
+              </div>
+
+              <div className="input-group input-group-lg mb-3">
+                <div className="input-group-prepend">
+                  <span
+                    className="input-group-text bg-danger border-0 text-white"
+                    id="inputGroup-sizing-lg"
+                  >
+                    Occupation
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  name="occupation"
+                  onChange={this.onChange}
+                  value={this.state.occupation}
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-lg"
+                />
+              </div>
+              <button className="btn btn-danger py-1 px-5" type="submit">
+                Submit
+              </button>
+              {/* end of column div directly below this comment */}
+            </div>
+          </div>
+        </form>
+
+        {/* <form className="pb-4" onSubmit={this.onSubmit}>
           <div className="form-group">
             <label
               className="bg-primary px-3 text-light rounded"
@@ -47,7 +138,6 @@ class AddSmurfForm extends Component {
             >
               Name:
             </label>
-            <br />
             <input
               type="text"
               name="name"
@@ -55,15 +145,15 @@ class AddSmurfForm extends Component {
               value={this.state.name}
             />
           </div>
-          <br />
+
           <div>
             <label className="bg-primary px-3 text-light rounded" htmlFor="age">
               Age:
             </label>
-            <br />
+
             <input name="age" onChange={this.onChange} value={this.state.age} />
           </div>
-          <br />
+
           <div>
             <label
               className="bg-primary px-3 text-light rounded"
@@ -71,14 +161,13 @@ class AddSmurfForm extends Component {
             >
               Height:
             </label>
-            <br />
+
             <input
               name="height"
               onChange={this.onChange}
               value={this.state.height}
             />
           </div>
-          <br />
           <div>
             <label
               className="bg-primary px-3 text-light rounded"
@@ -86,7 +175,6 @@ class AddSmurfForm extends Component {
             >
               Occupation:
             </label>
-            <br />
             <input
               name="occupation"
               onChange={this.onChange}
@@ -97,7 +185,7 @@ class AddSmurfForm extends Component {
           <button className="btn btn-danger py-1 px-5" type="submit">
             Submit
           </button>
-        </form>
+        </form> */}
       </div>
     );
   }
