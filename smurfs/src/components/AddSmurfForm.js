@@ -9,6 +9,7 @@ class AddSmurfForm extends Component {
     super(props);
     this.state = {
       name: '',
+      thumbnail: '',
       age: '',
       height: '',
       occupation: ''
@@ -26,6 +27,7 @@ class AddSmurfForm extends Component {
 
     const smurf = {
       name: this.state.name,
+      thumbnail: this.state.thumbnail,
       age: this.state.age,
       height: this.state.height,
       occupation: this.state.occupation
@@ -57,6 +59,26 @@ class AddSmurfForm extends Component {
                   name="name"
                   onChange={this.onChange}
                   value={this.state.name}
+                  className="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-lg"
+                />
+              </div>
+
+              <div className="input-group input-group-lg mb-3">
+                <div className="input-group-prepend">
+                  <span
+                    className="input-group-text bg-danger border-0 text-white"
+                    id="inputGroup-sizing-lg"
+                  >
+                    thumbnail
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  name="thumbnail"
+                  onChange={this.onChange}
+                  value={this.state.thumbnail}
                   className="form-control"
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-lg"
@@ -195,7 +217,13 @@ AddSmurfForm.propTypes = {
   redux_add_smurf: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  smurfs: state.smurfs,
+  error: state.error,
+  isFetching: state.isFetching
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { redux_add_smurf }
 )(AddSmurfForm);
