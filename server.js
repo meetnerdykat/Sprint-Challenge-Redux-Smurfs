@@ -14,10 +14,31 @@ const sendUserError = (msg, res) => {
 
 let smurfs = [
   {
-    name: 'Brainey',
+    id: 0,
+    thumbnail:
+      'https://vignette.wikia.nocookie.net/smurfs/images/1/1b/Sassette%27sBewitchingFriendship26.png/revision/latest/scale-to-width-down/185?cb=20140622161906',
+    name: 'Sassette',
     age: 200,
-    height: '5cm',
-    id: 0
+    height: '2.5cm',
+    occupation: 'Adventuress'
+  },
+  {
+    id: 1,
+    thumbnail:
+      'https://vignette.wikia.nocookie.net/smurfs/images/b/bf/Shopping_Smurfette_Icon_SV_2019.png/revision/latest?cb=20190627210712',
+    name: 'Smurfette',
+    age: 400,
+    height: '3cm',
+    occupation: 'Beautician & Nurturer'
+  },
+  {
+    id: 2,
+    thumbnail:
+      'https://vignette.wikia.nocookie.net/smurfs/images/1/1b/SmurfTheOtherCheek118.png/revision/latest/scale-to-width-down/185?cb=20141013190024',
+    name: 'Papa',
+    age: 1000,
+    height: '4cm',
+    occupation: 'Village Leader'
   }
 ];
 server.get('/smurfs', (req, res) => {
@@ -26,9 +47,9 @@ server.get('/smurfs', (req, res) => {
 let smurfId = smurfs.length;
 
 server.post('/smurfs', (req, res) => {
-  const { name, age, height } = req.body;
-  const newSmurf = { name, age, height, id: smurfId };
-  if (!name || !age || !height) {
+  const { name, thumbnail, age, height, occupation } = req.body;
+  const newSmurf = { name, thumbnail, age, height, occupation, id: smurfId };
+  if (!name || !age || !height || !occupation) {
     return sendUserError(
       'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
       res
@@ -51,7 +72,7 @@ server.post('/smurfs', (req, res) => {
 
 server.put('/smurfs/:id', (req, res) => {
   const { id } = req.params;
-  const { name, age, height } = req.body;
+  const { name, thumbnail, age, height, occupation } = req.body;
   const findSmurfById = smurf => {
     return smurf.id == id;
   };
@@ -60,8 +81,10 @@ server.put('/smurfs/:id', (req, res) => {
     return sendUserError('No Smurf found by that ID', res);
   } else {
     if (name) foundSmurf.name = name;
+    if (thumbnail) foundSmurf.thumbnail = thumbnail;
     if (age) foundSmurf.age = age;
     if (height) foundSmurf.height = height;
+    if (occupation) foundSmurf.occupation = occupation;
     res.json(smurfs);
   }
 });
